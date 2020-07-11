@@ -48,7 +48,7 @@ export default function App() {
 
  const onSubmit = data => {
   axios
-  .post("http://localhost:4000/api/libro", data)
+  .post("http://localhost:5000/api/libro", data)
   .then(
     (response) => {
        console.log(response.data);
@@ -71,7 +71,7 @@ export default function App() {
     const { data } = await axios.get("http://localhost:5000/api/libro");
       //const { data } = await axios.get("/api/libro");
     console.log(data);
-    setItem(data.animales);
+    setItem(data.libros);
     return null;
   }
   console.log(errors);

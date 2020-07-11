@@ -71,7 +71,7 @@ export default function App() {
     const { data } = await axios.get("http://localhost:5000/api/libro");
       //const { data } = await axios.get("/api/libro");
     console.log(data);
-    setItem(data.libros);
+    setItem(data.libro);
     return null;
   }
   console.log(errors);

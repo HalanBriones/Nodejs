@@ -27,7 +27,7 @@ function seleccion(req,res){
     Libro.find({}, (err,libro) => {
         if(!libro) res.status(400).send({message:'No hay libros'})
 
-        res.status(500).send({libro})
+        res.status(200).send({libro})
     })
 }
     //params -> viene en la ruta sin nombre de parametro 

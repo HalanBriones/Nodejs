@@ -1,5 +1,4 @@
 'use strict'
-
 var Libro = require('../models/libro')
 
 //post

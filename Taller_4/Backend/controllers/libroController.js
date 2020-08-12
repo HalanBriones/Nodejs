@@ -1,5 +1,5 @@
 'use strict'
-var Libro = require('../models/libro')
+var Libro = require('../models/libro');
 
 //post
 
@@ -24,19 +24,22 @@ function guardar(req,res){
 function seleccion(req,res){
 
     Libro.find({}, (err,libro) => {
-        if(!libro) res.status(400).send({message:'No hay libros'})
+        if(!libro) return res.status(404).send({message:'No hay libros'})
+        
+        if(err) return res.status(500).send({err})
+
 
         res.status(200).send({libro})
     })
 }
-    //params -> viene en la ruta sin nombre de parametro 
-    //query -> viene con nombre de parametro en forma de get 
+//params -> viene en la ruta sin nombre de parametro 
+//query -> viene con nombre de parametro en forma de get 
 function seleccion_año_idioma (req,res){
     let añoreq = req.query.ano_publicacion
     let idiomareq  = req.query.idioma
-    Libro.find({ano_publicacion:añoreq,idioma:idiomareq}, (err,libro) =>{
-        if(!libro) res.status(404).send({message:'No se encuetran libros con estas caracteristicas'})
-        res.status(500).send({libro})
+    Libro.find({ano_publicacion: añoreq,idioma: idiomareq}, (err,libro) =>{
+        if(!libro) return res.status(404).send({message:'No se encuetran libros con estas caracteristicas'})
+        res.status(200).send({libro})
     })
 }
 

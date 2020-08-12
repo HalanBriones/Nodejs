@@ -1,7 +1,7 @@
 //const { use } = require("./routes/libroRoute");
-const { use } = require("./routes/usuarioRoute");
+//const { use } = require("./routes/usuarioRoute");
 'use strict'
-
+const { use } = require("./routes/routes");
 const express = require('express')
 
 const bodyParser = require('body-parser')
@@ -9,16 +9,16 @@ const app = express()
 var cors = require('cors')
 app.use(cors())
 app.options('*', cors())
-//var libro_routes = require('./routes/libroRoute')
-var usuario_routes = require('./routes/usuarioRoute')
+
+var routes = require('./routes/routes');
+
 const mongoose = require('mongoose')
 
 
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
-//app.use('/api',libro_routes)
-app.use('/api',usuario_routes)
+app.use('/api',routes)
 
 mongoose.connect('mongodb+srv://olakase1998:olakase1998@cluster0-79txb.azure.mongodb.net/animales?retryWrites=true&w=majority',{useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true },(err) =>{
 

@@ -1,5 +1,3 @@
-//const { use } = require("./routes/libroRoute");
-//const { use } = require("./routes/usuarioRoute");
 'use strict'
 const { use } = require("./routes/routes");
 const express = require('express')

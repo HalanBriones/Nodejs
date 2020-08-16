@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const alumnoSchema = Schema(
+const alumnosSchema = Schema(
     {
         nombre:String,
         rut:{
@@ -14,4 +14,4 @@ const alumnoSchema = Schema(
 
 )
 
-module.exports =   mongoose.model('alumno',alumnoSchema)
+module.exports =   mongoose.model('alumnos',alumnosSchema)
